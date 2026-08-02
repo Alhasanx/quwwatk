@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قوّتك — تمارين ومدربين لكل عضلة</title>
+<meta name="description" content="موقع عربي يساعدك تختار مدربك وتتعلم تمارين كل عضلة، مع أحاديث عن القوة والصحة وحاسبات لياقة.">
+<style>
+@font-face{font-family:'ThmanyahSans';src:url('fonts/thmanyahsans-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'ThmanyahSans';src:url('fonts/thmanyahsans-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'ThmanyahSans';src:url('fonts/thmanyahsans-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+:root{
+--bg:#FDF5E6;--surface:#FFFDF4;--surface2:#F4EBD6;--text:#26303C;--text2:#5C6672;
+--navy:#1F3A5F;--navy-d:#16293F;--navy-l:#DCE4EE;--navy-m:#7E96B5;
+--gold:#C2A14D;--gold-d:#8A6F2B;--gold-bg:#FBF3DD;--border:#E3D9BE;
+--on-navy:#F4F1E4;--shadow:0 2px 12px rgba(31,58,95,.07);
+}
+[data-theme="dark"]{
+--bg:#141E2B;--surface:#1C2938;--surface2:#233346;--text:#EDF1F7;--text2:#A8B4C4;
+--navy:#A9C0DE;--navy-d:#C8D8EC;--navy-l:#2A3B52;--navy-m:#5E7691;
+--gold:#D6B25E;--gold-d:#C2A14D;--gold-bg:#2A2C22;--border:#2C3B4F;
+--on-navy:#141E2B;--shadow:0 2px 12px rgba(0,0,0,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'ThmanyahSans',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;transition:background .3s,color .3s}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+section{padding:64px 20px;max-width:1100px;margin:0 auto}
+h2.sec{font-size:30px;font-weight:700;color:var(--navy);margin-bottom:8px}
+p.sub{color:var(--text2);margin-bottom:32px;font-size:16px}
+.gold-line{width:56px;height:3px;background:var(--gold);border-radius:2px;margin:12px 0 20px}
+header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--border);backdrop-filter:blur(8px)}
+.nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px}
+.logo{font-size:22px;font-weight:700;color:var(--navy)}
+.logo span{color:var(--gold)}
+.nav ul{display:flex;gap:4px;list-style:none;margin-inline-start:auto;flex-wrap:wrap}
+.nav ul a{font-size:14px;padding:8px 12px;border-radius:9px;color:var(--text2)}
+.nav ul a:hover{background:var(--surface2);color:var(--navy)}
+.theme-btn{width:38px;height:38px;border-radius:10px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:17px}
+.hero{display:flex;flex-wrap:wrap;align-items:center;gap:40px;padding-top:72px}
+.hero-txt{flex:1;min-width:280px}
+.hero h1{font-size:44px;font-weight:700;color:var(--navy);line-height:1.4}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{color:var(--text2);font-size:17px;margin:16px 0 28px;max-width:520px}
+.btn{display:inline-block;padding:13px 30px;border-radius:12px;font-size:16px;font-weight:500;transition:transform .15s,opacity .2s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--navy);color:var(--on-navy)}
+.btn-ghost{border:1.5px solid var(--navy-m);color:var(--navy);margin-inline-start:10px}
+.hero-card{flex:1;min-width:280px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:var(--shadow)}
+.hadith-daily{border:1.5px solid var(--gold);background:var(--gold-bg);border-radius:16px;padding:20px 24px}
+.hadith-daily .txt{font-size:18px;line-height:2.1;color:var(--text)}
+.hadith-daily .src{color:var(--gold-d);font-size:13px;margin-top:6px;font-weight:500}
+.hadith-daily .lbl{font-size:12px;color:var(--gold-d);font-weight:500;letter-spacing:.5px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.stats{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap}
+.stat{flex:1;min-width:90px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px;text-align:center}
+.stat b{font-size:24px;color:var(--navy);font-weight:700;display:block}
+.stat span{font-size:12px;color:var(--text2)}
+.muscle-wrap{display:flex;gap:36px;flex-wrap:wrap;align-items:flex-start}
+.body-panel{flex:0 1 320px;min-width:260px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:20px;text-align:center}
+.view-toggle{display:inline-flex;background:var(--surface2);border-radius:10px;padding:4px;margin-bottom:14px}
+.view-toggle button{padding:7px 22px;border-radius:8px;font-size:14px;color:var(--text2)}
+.view-toggle button.on{background:var(--navy);color:var(--on-navy)}
+svg.body .zone{fill:var(--navy-l);stroke:var(--navy-m);stroke-width:1;cursor:pointer;transition:fill .2s}
+svg.body .zone:hover{fill:var(--navy-m)}
+svg.body .zone.sel{fill:var(--gold);stroke:var(--gold-d)}
+svg.body .frame{fill:none;stroke:var(--navy-m);stroke-width:1.4;opacity:.55}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;justify-content:center}
+.chip{border:1px solid var(--border);background:var(--surface);border-radius:999px;padding:6px 16px;font-size:13px;color:var(--text2)}
+.chip.sel,.chip:hover{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.ex-panel{flex:1;min-width:300px}
+.ex-title{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.ex-count{font-size:13px;color:var(--text2);margin-bottom:16px}
+.ex-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:14px}
+.ex-card h4{font-size:17px;font-weight:500;color:var(--text);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ex-card .lvl{font-size:11px;padding:3px 10px;border-radius:999px;background:var(--navy-l);color:var(--navy);font-weight:500}
+.ex-card p{font-size:14px;color:var(--text2);margin:8px 0}
+.ex-meta{display:flex;gap:16px;font-size:13px;color:var(--navy);flex-wrap:wrap}
+.ex-meta b{font-weight:500}
+.ex-video{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--gold-d);font-weight:500;margin-top:10px}
+.ex-video:hover{text-decoration:underline}
+.plan-tabs{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
+.plan-tabs button{padding:9px 24px;border-radius:10px;border:1px solid var(--border);font-size:14px;color:var(--text2)}
+.plan-tabs button.on{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.day-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px}
+.day-card h5{font-size:14px;color:var(--gold-d);font-weight:500;margin-bottom:6px}
+.day-card div{font-size:14px;color:var(--text)}
+.day-card small{color:var(--text2);font-size:12px}
+.filters{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+.filters select{padding:9px 14px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-family:inherit;font-size:14px}
+.tr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.tr-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+.tr-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.avatar{width:52px;height:52px;border-radius:50%;background:var(--navy-l);color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;flex-shrink:0}
+.tr-head h4{font-size:17px;font-weight:500}
+.tr-head small{color:var(--text2);font-size:13px;display:block}
+.rate{color:var(--gold);font-size:13px;font-weight:500}
+.tr-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tr-tags span{font-size:11px;background:var(--surface2);color:var(--text2);padding:3px 10px;border-radius:999px}
+.tr-price{font-size:14px;color:var(--navy);font-weight:500;margin-bottom:14px}
+.tr-actions{display:flex;gap:8px}
+.tr-actions a{flex:1;text-align:center;font-size:13px;padding:9px 6px;border-radius:10px;border:1px solid var(--border);color:var(--text2);transition:.2s}
+.tr-actions a:hover{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.calc{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:24px}
+.calc h3{font-size:18px;font-weight:500;color:var(--navy);margin-bottom:16px}
+.calc label{font-size:13px;color:var(--text2);display:block;margin:10px 0 4px}
+.calc input,.calc select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-family:inherit;font-size:14px}
+.calc .go{width:100%;margin-top:16px;background:var(--navy);color:var(--on-navy);padding:11px;border-radius:10px;font-size:15px;font-weight:500}
+.calc .res{margin-top:16px;background:var(--surface2);border-radius:12px;padding:14px;text-align:center;font-size:15px;display:none}
+.calc .res b{font-size:26px;color:var(--navy);font-weight:700;display:block}
+.calc .res small{color:var(--text2);font-size:12px}
+.food-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.food{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px}
+.food h4{font-size:15px;font-weight:500;color:var(--gold-d);margin-bottom:8px}
+.food ul{list-style:none;font-size:14px;color:var(--text2)}
+.food li{padding:4px 0;border-bottom:1px dashed var(--border)}
+.food li:last-child{border:none}
+.track-form{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.track-form input{padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-family:inherit;font-size:14px;flex:1;min-width:130px}
+.track-form button{background:var(--navy);color:var(--on-navy);padding:10px 26px;border-radius:10px;font-size:14px;font-weight:500}
+.log{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.log b{color:var(--navy);font-weight:500}
+.log small{color:var(--text2)}
+.log .del{margin-inline-start:auto;color:#b3452f;font-size:13px}
+.empty{color:var(--text2);font-size:14px;background:var(--surface2);border-radius:12px;padding:16px;text-align:center}
+.hadith-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.h-card{border:1.5px solid var(--gold);background:var(--gold-bg);border-radius:16px;padding:22px}
+.h-card p{font-size:16px;line-height:2.1}
+.h-card small{color:var(--gold-d);font-weight:500;display:block;margin-top:8px}
+footer{border-top:1px solid var(--border);margin-top:40px;padding:36px 20px;text-align:center;color:var(--text2);font-size:14px}
+footer .logo{font-size:19px;margin-bottom:6px}
+@media(max-width:820px){
+.nav{flex-wrap:wrap;gap:10px}
+.theme-btn{margin-inline-start:auto;order:1}
+.nav ul{order:3;width:100%;margin-inline-start:0;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px}
+.nav ul::-webkit-scrollbar{display:none}
+.nav ul a{white-space:nowrap;font-size:13px;padding:7px 10px}
+}
+@media(max-width:640px){
+section{padding:44px 16px}
+.hero{padding-top:36px;gap:26px}
+.hero h1{font-size:31px}
+.hero p{font-size:15px}
+h2.sec{font-size:23px}
+.btn{display:block;text-align:center}
+.btn-ghost{margin-inline-start:0;margin-top:10px}
+.hero-card{padding:18px}
+.hadith-daily{padding:16px 18px}
+.hadith-daily .txt{font-size:16px}
+.body-panel{flex:1 1 100%}
+.muscle-wrap{gap:24px}
+.ex-title{font-size:19px}
+.ex-card{padding:16px}
+.calc{padding:18px}
+.tr-card{padding:18px}
+.tr-actions a{font-size:12px;padding:9px 4px}
+.plan-tabs button{flex:1;padding:9px 10px}
+.track-form input{min-width:100%}
+.track-form button{width:100%}
+.stat b{font-size:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<nav class="nav">
+<div class="logo">قوّ<span>تك</span></div>
+<ul>
+<li><a href="#muscles">التمارين</a></li>
+<li><a href="#plans">الخطط</a></li>
+<li><a href="#trainers">المدربين</a></li>
+<li><a href="#calc">الحاسبات</a></li>
+<li><a href="#food">التغذية</a></li>
+<li><a href="#track">تقدمي</a></li>
+<li><a href="#hadith">أحاديث</a></li>
+</ul>
+<button class="theme-btn" id="themeBtn" aria-label="تبديل الوضع الداكن">🌙</button>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<div class="hero-txt">
+<h1>قوّتك تبدأ من <em>هنا</em></h1>
+<p>اختر عضلتك، تعلّم تمرينها بالطريقة الصحيحة، وتواصل مع مدرب يناسبك — كل هذا في مكان واحد، مع جرعة إيمانية تذكّرك أن القوة نعمة.</p>
+<a href="#muscles" class="btn btn-primary">ابدأ التمرين</a>
+<a href="#trainers" class="btn btn-ghost">تصفح المدربين</a>
+<div class="stats">
+<div class="stat"><b>30+</b><span>تمرين مشروح</span></div>
+<div class="stat"><b>6</b><span>مدربين معتمدين</span></div>
+<div class="stat"><b>11</b><span>مجموعة عضلية</span></div>
+</div>
+</div>
+<div class="hero-card">
+<div class="hadith-daily">
+<div class="lbl">✦ حديث</div>
+<div class="txt" id="dailyHadith"></div>
+<div class="src" id="dailySrc"></div>
+</div>
+</div>
+</section>
+
+<section id="muscles">
+<h2 class="sec">تمارين لكل عضلة</h2>
+<div class="gold-line"></div>
+<p class="sub">اضغط على العضلة في الجسم أو اختر من القائمة، وبتشوف تمارينها مع الشرح وعدد الجولات.</p>
+<div class="muscle-wrap">
+<div class="body-panel">
+<div class="view-toggle">
+<button id="frontBtn" class="on">أمامي</button>
+<button id="backBtn">خلفي</button>
+</div>
+<svg class="body" id="frontSvg" viewBox="0 0 200 430" width="220" role="img" aria-label="جسم أمامي تفاعلي">
+<circle class="frame" cx="100" cy="34" r="22"/>
+<path class="frame" d="M78 60 Q100 70 122 60 L128 78 Q100 88 72 78 Z"/>
+<ellipse class="zone" data-m="shoulders" cx="63" cy="92" rx="15" ry="13"><title>الأكتاف</title></ellipse>
+<ellipse class="zone" data-m="shoulders" cx="137" cy="92" rx="15" ry="13"><title>الأكتاف</title></ellipse>
+<path class="zone" data-m="chest" d="M74 92 Q100 86 126 92 L124 126 Q100 136 76 126 Z"><title>الصدر</title></path>
+<ellipse class="zone" data-m="biceps" cx="52" cy="128" rx="11" ry="22"><title>البايسبس</title></ellipse>
+<ellipse class="zone" data-m="biceps" cx="148" cy="128" rx="11" ry="22"><title>البايسبس</title></ellipse>
+<ellipse class="zone" data-m="forearms" cx="45" cy="176" rx="9" ry="24"><title>الساعد</title></ellipse>
+<ellipse class="zone" data-m="forearms" cx="155" cy="176" rx="9" ry="24"><title>الساعد</title></ellipse>
+<path class="zone" data-m="abs" d="M80 132 Q100 140 120 132 L118 196 Q100 206 82 196 Z"><title>البطن</title></path>
+<ellipse class="zone" data-m="quads" cx="83" cy="256" rx="16" ry="42"><title>الفخذ الأمامي</title></ellipse>
+<ellipse class="zone" data-m="quads" cx="117" cy="256" rx="16" ry="42"><title>الفخذ الأمامي</title></ellipse>
+<ellipse class="zone" data-m="calves" cx="85" cy="352" rx="11" ry="34"><title>السمانة</title></ellipse>
+<ellipse class="zone" data-m="calves" cx="115" cy="352" rx="11" ry="34"><title>السمانة</title></ellipse>
+</svg>
+<svg class="body" id="backSvg" viewBox="0 0 200 430" width="220" style="display:none" role="img" aria-label="جسم خلفي تفاعلي">
+<circle class="frame" cx="100" cy="34" r="22"/>
+<path class="zone" data-m="traps" d="M76 62 Q100 54 124 62 L120 88 Q100 80 80 88 Z"><title>الترابيس</title></path>
+<ellipse class="zone" data-m="shoulders" cx="63" cy="92" rx="15" ry="13"><title>الأكتاف</title></ellipse>
+<ellipse class="zone" data-m="shoulders" cx="137" cy="92" rx="15" ry="13"><title>الأكتاف</title></ellipse>
+<path class="zone" data-m="back" d="M76 96 Q100 104 124 96 L120 168 Q100 180 80 168 Z"><title>الظهر</title></path>
+<ellipse class="zone" data-m="triceps" cx="52" cy="130" rx="11" ry="22"><title>الترايسبس</title></ellipse>
+<ellipse class="zone" data-m="triceps" cx="148" cy="130" rx="11" ry="22"><title>الترايسبس</title></ellipse>
+<path class="zone" data-m="glutes" d="M78 184 Q100 176 122 184 L124 218 Q100 230 76 218 Z"><title>خلفية الفخذ</title></path>
+<ellipse class="zone" data-m="glutes" cx="84" cy="262" rx="15" ry="36"><title>خلفية الفخذ</title></ellipse>
+<ellipse class="zone" data-m="glutes" cx="116" cy="262" rx="15" ry="36"><title>خلفية الفخذ</title></ellipse>
+<ellipse class="zone" data-m="calves" cx="85" cy="352" rx="11" ry="34"><title>السمانة</title></ellipse>
+<ellipse class="zone" data-m="calves" cx="115" cy="352" rx="11" ry="34"><title>السمانة</title></ellipse>
+</svg>
+<div class="chips" id="chips"></div>
+</div>
+<div class="ex-panel">
+<div class="ex-title" id="exTitle"></div>
+<div class="ex-count" id="exCount"></div>
+<div id="exList"></div>
+</div>
+</div>
+</section>
+
+<section id="plans">
+<h2 class="sec">خطط تمرين جاهزة</h2>
+<div class="gold-line"></div>
+<p class="sub">برنامج أسبوعي كامل حسب مستواك — التزم فيه ٨ أسابيع وشوف الفرق.</p>
+<div class="plan-tabs">
+<button class="on" data-p="beg">مبتدئ</button>
+<button data-p="mid">متوسط</button>
+<button data-p="adv">متقدم</button>
+</div>
+<div class="plan-grid" id="planGrid"></div>
+</section>
+
+<section id="trainers">
+<h2 class="sec">اختر مدربك</h2>
+<div class="gold-line"></div>
+<p class="sub">مدربين بتخصصات مختلفة — فلتر حسب هدفك ومدينتك وتواصل معهم مباشرة.</p>
+<div class="filters">
+<select id="fSpec">
+<option value="">كل التخصصات</option>
+<option>تضخيم عضلي</option>
+<option>خسارة وزن</option>
+<option>لياقة عامة</option>
+<option>تأهيل إصابات</option>
+<option>كروس فت</option>
+</select>
+<select id="fCity">
+<option value="">كل المحافظات</option>
+<option>العاصمة</option>
+<option>حولي</option>
+<option>الفروانية</option>
+<option>مبارك الكبير</option>
+<option>الأحمدي</option>
+<option>الجهراء</option>
+<option>أونلاين</option>
+</select>
+</div>
+<div class="tr-grid" id="trGrid"></div>
+</section>
+
+<section id="calc">
+<h2 class="sec">حاسبات اللياقة</h2>
+<div class="gold-line"></div>
+<p class="sub">أرقامك هي بوصلتك — احسب مؤشر كتلتك وسعراتك اليومية.</p>
+<div class="calc-grid">
+<div class="calc">
+<h3>مؤشر كتلة الجسم (BMI)</h3>
+<label>الوزن (كجم)</label><input type="number" id="bmiW" placeholder="75">
+<label>الطول (سم)</label><input type="number" id="bmiH" placeholder="175">
+<button class="go" onclick="calcBMI()">احسب</button>
+<div class="res" id="bmiRes"></div>
+</div>
+<div class="calc">
+<h3>السعرات اليومية</h3>
+<label>الجنس</label><select id="calSex"><option value="m">ذكر</option><option value="f">أنثى</option></select>
+<label>العمر</label><input type="number" id="calAge" placeholder="25">
+<label>الوزن (كجم)</label><input type="number" id="calW" placeholder="75">
+<label>الطول (سم)</label><input type="number" id="calH" placeholder="175">
+<label>مستوى النشاط</label>
+<select id="calAct">
+<option value="1.2">خامل (بدون تمرين)</option>
+<option value="1.375">خفيف (١-٣ أيام أسبوعياً)</option>
+<option value="1.55" selected>متوسط (٣-٥ أيام)</option>
+<option value="1.725">عالي (٦-٧ أيام)</option>
+</select>
+<label>الهدف</label>
+<select id="calGoal">
+<option value="0">تثبيت الوزن</option>
+<option value="-400">خسارة وزن</option>
+<option value="300">زيادة عضل</option>
+</select>
+<button class="go" onclick="calcCal()">احسب</button>
+<div class="res" id="calRes"></div>
+</div>
+</div>
+</section>
+
+<section id="food">
+<h2 class="sec">تغذية التمرين</h2>
+<div class="gold-line"></div>
+<p class="sub">وجبات بسيطة تخدم تمرينك — «ما ملأ آدمي وعاءً شراً من بطن».</p>
+<div class="food-grid">
+<div class="food"><h4>قبل التمرين (٦٠-٩٠ دقيقة)</h4><ul><li>شوفان بالحليب والموز</li><li>تمرات مع قهوة</li><li>توست أسمر بزبدة الفول السوداني</li></ul></div>
+<div class="food"><h4>بعد التمرين (خلال ساعة)</h4><ul><li>صدر دجاج مع رز</li><li>بروتين شيك مع موز</li><li>بيض مسلوق مع توست</li></ul></div>
+<div class="food"><h4>سناكات صحية</h4><ul><li>زبادي يوناني بالعسل</li><li>حفنة مكسرات نية</li><li>جبن قريش مع خيار</li></ul></div>
+<div class="food"><h4>لا تنساها</h4><ul><li>٣ لتر ماء يومياً</li><li>نوم ٧-٨ ساعات</li><li>بروتين ١.٦-٢ جم لكل كجم من وزنك</li></ul></div>
+</div>
+</section>
+
+<section id="track">
+<h2 class="sec">سجّل تقدمك</h2>
+<div class="gold-line"></div>
+<p class="sub">دوّن أوزانك بعد كل تمرين — الأرقام اللي تكبر أصدق دليل إنك تتطور. (تنحفظ على جهازك)</p>
+<div class="track-form">
+<input type="text" id="tEx" placeholder="التمرين (مثال: بنش برس)">
+<input type="number" id="tW" placeholder="الوزن كجم">
+<input type="number" id="tR" placeholder="التكرارات">
+<button onclick="addLog()">أضف</button>
+</div>
+<div id="logList"></div>
+</section>
+
+<section id="hadith">
+<h2 class="sec">أحاديث وآثار في القوة والصحة</h2>
+<div class="gold-line"></div>
+<p class="sub">جسدك أمانة — هذي نصوص تذكّرك ليش تعتني فيه.</p>
+<div class="hadith-grid">
+<div class="h-card"><p>«المؤمن القوي خيرٌ وأحبُّ إلى الله من المؤمن الضعيف، وفي كلٍّ خير، احرص على ما ينفعك واستعن بالله ولا تعجز»</p><small>رواه مسلم</small></div>
+<div class="h-card"><p>«نعمتان مغبونٌ فيهما كثيرٌ من الناس: الصحة والفراغ»</p><small>رواه البخاري</small></div>
+<div class="h-card"><p>«ما ملأ آدميٌّ وعاءً شراً من بطن، بحسب ابن آدم أُكُلاتٌ يُقمن صلبه»</p><small>رواه الترمذي</small></div>
+<div class="h-card"><p>«إنّ لبدنك عليك حقاً»</p><small>متفق عليه</small></div>
+<div class="h-card"><p>«سلوا الله العفو والعافية، فإنّ أحداً لم يُعطَ بعد اليقين خيراً من العافية»</p><small>رواه الترمذي</small></div>
+<div class="h-card"><p>«علِّموا أولادكم السباحة والرماية وركوب الخيل»</p><small>أثر يُروى عن عمر بن الخطاب رضي الله عنه</small></div>
+</div>
+</section>
+
+<footer>
+<div class="logo">قوّ<span style="color:var(--gold)">تك</span></div>
+<div>موقع تجريبي — البيانات والمدربين للعرض فقط · صُمم بخط ثمانية</div>
+</footer>
+
+<script>
+const $=q=>document.querySelector(q);
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const themeBtn=$('#themeBtn');
+const savedTheme=store.get('theme');
+if(savedTheme==='dark'||(!savedTheme&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.dataset.theme='dark';themeBtn.textContent='☀️'}
+themeBtn.onclick=()=>{const d=document.documentElement.dataset.theme==='dark';document.documentElement.dataset.theme=d?'':'dark';themeBtn.textContent=d?'🌙':'☀️';store.set('theme',d?'light':'dark')};
+
+const hadiths=[
+{t:'«المؤمن القوي خيرٌ وأحبُّ إلى الله من المؤمن الضعيف، وفي كلٍّ خير»',s:'رواه مسلم'},
+{t:'«نعمتان مغبونٌ فيهما كثيرٌ من الناس: الصحة والفراغ»',s:'رواه البخاري'},
+{t:'«احرص على ما ينفعك واستعن بالله ولا تعجز»',s:'رواه مسلم'},
+{t:'«إنّ لبدنك عليك حقاً»',s:'متفق عليه'},
+{t:'«ما ملأ آدميٌّ وعاءً شراً من بطن»',s:'رواه الترمذي'},
+{t:'«سلوا الله العفو والعافية»',s:'رواه الترمذي'}
+];
+const h=hadiths[0];
+$('#dailyHadith').textContent=h.t;$('#dailySrc').textContent=h.s;
+
+const M={
+chest:{n:'الصدر',ex:[
+{n:'بنش برس بالبار',l:'أساسي',d:'استلقِ على البنش، انزل بالبار ببطء لمنتصف صدرك ثم ادفع للأعلى. لا تقوّس ظهرك بشكل مبالغ.',s:'4 جولات',r:'8-12 تكرار'},
+{n:'ضغط بالدمبل مائل',l:'متوسط',d:'على بنش مائل 30 درجة، ادفع الدمبلات للأعلى وقرّبها في القمة. يستهدف الصدر العلوي.',s:'3 جولات',r:'10-12 تكرار'},
+{n:'تمرين الضغط',l:'مبتدئ',d:'الجسم مستقيم من الرأس للكعب، انزل حتى يقارب صدرك الأرض. أفضل تمرين بدون معدات.',s:'3 جولات',r:'حتى الإجهاد'}]},
+back:{n:'الظهر',ex:[
+{n:'العقلة',l:'أساسي',d:'أمسك البار بقبضة أوسع من الكتفين واسحب جسمك حتى تتجاوز ذقنك البار. ملك تمارين الظهر.',s:'4 جولات',r:'6-10 تكرار'},
+{n:'سحب بار منحني',l:'متوسط',d:'انحنِ بظهر مستقيم واسحب البار لأسفل بطنك مع عصر لوحي الكتف.',s:'4 جولات',r:'8-10 تكرار'},
+{n:'سحب أرضي بالكيبل',l:'مبتدئ',d:'اجلس بظهر مستقيم واسحب المقبض لبطنك، لا تسترخِ في الرجوع بل قاوم الوزن.',s:'3 جولات',r:'10-12 تكرار'}]},
+shoulders:{n:'الأكتاف',ex:[
+{n:'ضغط عسكري بالبار',l:'أساسي',d:'قف بثبات وادفع البار من مستوى الكتف حتى فرد الذراعين فوق رأسك تماماً.',s:'4 جولات',r:'8-10 تكرار'},
+{n:'رفرفة جانبية',l:'مبتدئ',d:'ارفع الدمبلات جانبياً حتى مستوى الكتف بمرفق شبه ثابت. وزن خفيف وتحكم كامل.',s:'3 جولات',r:'12-15 تكرار'},
+{n:'رفرفة خلفية منحنية',l:'متوسط',d:'انحنِ للأمام وارفع الدمبلات جانبياً — يستهدف الكتف الخلفي المنسي عند الأغلب.',s:'3 جولات',r:'12-15 تكرار'}]},
+biceps:{n:'البايسبس',ex:[
+{n:'تجميع بالبار',l:'أساسي',d:'قف ثابتاً وارفع البار بثني المرفقين فقط، بدون مرجحة الجسم أبداً.',s:'3 جولات',r:'8-12 تكرار'},
+{n:'تجميع مطرقة',l:'مبتدئ',d:'ارفع الدمبلات والقبضة عمودية (كالمطرقة) — يضخّم عضلة الساعد العلوية مع البايسبس.',s:'3 جولات',r:'10-12 تكرار'},
+{n:'تجميع تركيز',l:'متوسط',d:'اجلس وأسند مرفقك على فخذك وارفع الدمبل ببطء شديد. عزل كامل للبايسبس.',s:'3 جولات',r:'10-12 تكرار'}]},
+triceps:{n:'الترايسبس',ex:[
+{n:'متوازي (Dips)',l:'أساسي',d:'على المتوازي، انزل حتى زاوية 90 بالمرفق ثم ادفع. جسمك عمودي ليتركز الجهد على الترايسبس.',s:'3 جولات',r:'8-12 تكرار'},
+{n:'سحب كيبل لأسفل',l:'مبتدئ',d:'اضغط الحبل لأسفل حتى فرد الذراع كاملاً مع تثبيت المرفقين بجانب الجسم.',s:'3 جولات',r:'12-15 تكرار'},
+{n:'تمديد خلف الرأس',l:'متوسط',d:'أمسك دمبل بيدين خلف رأسك ومدّ ذراعيك للأعلى. إحساس تمدد قوي في الرأس الطويل.',s:'3 جولات',r:'10-12 تكرار'}]},
+forearms:{n:'الساعد',ex:[
+{n:'ثني رسغ بالبار',l:'مبتدئ',d:'اجلس وأسند ساعديك على فخذيك والبار بيديك، حرّك الرسغ فقط للأعلى والأسفل.',s:'3 جولات',r:'15-20 تكرار'},
+{n:'حمل المزارع',l:'أساسي',d:'أمسك أثقل دمبلين تقدر عليهما وامشِ 30-40 متراً بظهر مستقيم. قبضة فولاذية.',s:'3 جولات',r:'40 متر'},
+{n:'تعليق على العقلة',l:'متوسط',d:'تعلّق على بار العقلة بأطول وقت ممكن — يقوي القبضة والساعد ويفك الضغط عن العمود الفقري.',s:'3 جولات',r:'حتى الإجهاد'}]},
+abs:{n:'البطن',ex:[
+{n:'بلانك',l:'مبتدئ',d:'أسند جسمك على الساعدين وأطراف القدمين بجسم مستقيم تماماً. شد بطنك ولا تحبس نفسك.',s:'3 جولات',r:'30-60 ثانية'},
+{n:'رفع الأرجل معلقاً',l:'متقدم',d:'تعلّق على العقلة وارفع رجليك ممدودتين حتى مستوى الحوض. الأقوى للبطن السفلية.',s:'3 جولات',r:'10-15 تكرار'},
+{n:'كرانش بالكيبل',l:'متوسط',d:'اركع أمام الكيبل واسحب الحبل بثني جذعك للأسفل — مقاومة متصاعدة أفضل من الكرانش العادي.',s:'3 جولات',r:'12-15 تكرار'}]},
+quads:{n:'الفخذ الأمامي',ex:[
+{n:'سكوات بالبار',l:'أساسي',d:'البار على أعلى ظهرك، انزل حتى يوازي فخذك الأرض بظهر مستقيم وركب باتجاه أصابع القدم.',s:'4 جولات',r:'6-10 تكرار'},
+{n:'اندفاع أمامي (Lunges)',l:'مبتدئ',d:'خطوة واسعة للأمام وانزل حتى تلامس ركبتك الخلفية الأرض تقريباً، ثم ارجع.',s:'3 جولات',r:'10 لكل رجل'},
+{n:'ضغط أرجل بالجهاز',l:'متوسط',d:'ادفع المنصة بكامل القدم ولا تفرد الركبة بالكامل في الأعلى.',s:'4 جولات',r:'10-12 تكرار'}]},
+glutes:{n:'خلفية الفخذ',ex:[
+{n:'ديدلفت روماني',l:'أساسي',d:'انزل بالبار ملاصقاً لساقيك بظهر مستقيم حتى تحس تمدد خلفية الفخذ، ثم ارجع بدفع الحوض.',s:'4 جولات',r:'8-10 تكرار'},
+{n:'هيب ثراست',l:'متوسط',d:'ظهرك العلوي على بنش والبار على حوضك، ادفع للأعلى واثبت ثانية في القمة.',s:'4 جولات',r:'8-12 تكرار'},
+{n:'ثني أرجل بالجهاز',l:'مبتدئ',d:'اثنِ ركبتيك لسحب الوزن ببطء وتحكم كامل في الرجوع.',s:'3 جولات',r:'12-15 تكرار'}]},
+calves:{n:'السمانة',ex:[
+{n:'رفع سمانة واقفاً',l:'مبتدئ',d:'قف على حافة درجة وارفع كعبيك لأعلى نقطة ثم انزل تحت مستوى الدرجة. مدى حركة كامل.',s:'4 جولات',r:'15-20 تكرار'},
+{n:'رفع سمانة جالساً',l:'متوسط',d:'يستهدف العضلة النعلية العميقة — وزن على ركبتيك وارفع كعبيك.',s:'3 جولات',r:'15-20 تكرار'},
+{n:'قفز الحبل',l:'مبتدئ',d:'اقفز على أطراف أصابعك — يبني السمانة ويرفع لياقتك القلبية معاً.',s:'3 جولات',r:'دقيقتان'}]},
+traps:{n:'الترابيس',ex:[
+{n:'هز الأكتاف بالبار',l:'مبتدئ',d:'أمسك البار وارفع كتفيك لأعلى نقطة ممكنة واعصر ثانيتين ثم انزل ببطء.',s:'4 جولات',r:'12-15 تكرار'},
+{n:'سحب للوجه بالكيبل',l:'متوسط',d:'اسحب الحبل باتجاه وجهك مع فتح المرفقين — يبني الترابيس ويصلح استدارة الكتفين.',s:'3 جولات',r:'15 تكرار'},
+{n:'ديدلفت',l:'متقدم',d:'التمرين المركب الأقوى — الترابيس تشتغل بكامل ثقلها في تثبيت الوزن.',s:'3 جولات',r:'5-8 تكرار'}]}
+};
+
+let curM='chest';
+const chipsEl=$('#chips');
+Object.keys(M).forEach(k=>{const b=document.createElement('button');b.className='chip';b.dataset.m=k;b.textContent=M[k].n;b.onclick=()=>selM(k);chipsEl.appendChild(b)});
+function selM(k){curM=k;
+document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('sel',c.dataset.m===k));
+document.querySelectorAll('svg.body .zone').forEach(z=>z.classList.toggle('sel',z.dataset.m===k));
+const m=M[k];$('#exTitle').textContent='تمارين '+m.n;$('#exCount').textContent=m.ex.length+' تمارين مختارة';
+$('#exList').innerHTML=m.ex.map(e=>`<div class="ex-card"><h4>${e.n} <span class="lvl">${e.l}</span></h4><p>${e.d}</p><div class="ex-meta"><span>الجولات: <b>${e.s}</b></span><span>التكرارات: <b>${e.r}</b></span></div><a class="ex-video" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent('شرح تمرين '+e.n)}">▶ شاهد شرح التمرين</a></div>`).join('');}
+document.querySelectorAll('svg.body .zone').forEach(z=>z.addEventListener('click',()=>selM(z.dataset.m)));
+$('#frontBtn').onclick=()=>{$('#frontSvg').style.display='';$('#backSvg').style.display='none';$('#frontBtn').classList.add('on');$('#backBtn').classList.remove('on')};
+$('#backBtn').onclick=()=>{$('#frontSvg').style.display='none';$('#backSvg').style.display='';$('#backBtn').classList.add('on');$('#frontBtn').classList.remove('on')};
+selM('chest');
+
+const plans={
+beg:[{d:'السبت',w:'جسم كامل',s:'سكوات، بنش، سحب أرضي، بلانك'},{d:'الأحد',w:'راحة',s:'مشي 30 دقيقة'},{d:'الاثنين',w:'جسم كامل',s:'ضغط عسكري، ديدلفت روماني، عقلة مساعدة'},{d:'الثلاثاء',w:'راحة',s:'إطالات خفيفة'},{d:'الأربعاء',w:'جسم كامل',s:'اندفاع، ضغط، سحب كيبل، سمانة'},{d:'الخميس',w:'كارديو خفيف',s:'سباحة أو دراجة'},{d:'الجمعة',w:'راحة تامة',s:'استشفاء ونوم جيد'}],
+mid:[{d:'السبت',w:'صدر + ترايسبس',s:'بنش، دمبل مائل، متوازي، كيبل'},{d:'الأحد',w:'ظهر + بايسبس',s:'عقلة، بار منحني، تجميع'},{d:'الاثنين',w:'راحة',s:'مشي أو إطالات'},{d:'الثلاثاء',w:'أرجل',s:'سكوات، ضغط أرجل، ثني، سمانة'},{d:'الأربعاء',w:'أكتاف + ترابيس',s:'عسكري، رفرفة، هز أكتاف'},{d:'الخميس',w:'بطن + كارديو',s:'بلانك، رفع أرجل، جري'},{d:'الجمعة',w:'راحة تامة',s:'استشفاء'}],
+adv:[{d:'السبت',w:'دفع (Push)',s:'بنش ثقيل، عسكري، مائل، ترايسبس'},{d:'الأحد',w:'سحب (Pull)',s:'ديدلفت، عقلة موزونة، سحب، بايسبس'},{d:'الاثنين',w:'أرجل',s:'سكوات ثقيل، هيب ثراست، سمانة'},{d:'الثلاثاء',w:'راحة نشطة',s:'كارديو خفيف وإطالات'},{d:'الأربعاء',w:'دفع (حجم)',s:'تكرارات أعلى بأوزان متوسطة'},{d:'الخميس',w:'سحب (حجم)',s:'تكرارات أعلى + ساعد وترابيس'},{d:'الجمعة',w:'أرجل + بطن',s:'أمامي وخلفي + عضلات البطن'}]};
+function renderPlan(p){$('#planGrid').innerHTML=plans[p].map(x=>`<div class="day-card"><h5>${x.d}</h5><div>${x.w}</div><small>${x.s}</small></div>`).join('')}
+document.querySelectorAll('.plan-tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.plan-tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');renderPlan(b.dataset.p)});
+renderPlan('beg');
+
+const trainers=[
+{n:'أحمد العنزي',sp:'تضخيم عضلي',c:'العاصمة',r:4.9,rv:127,p:15,tags:['كمال أجسام','برامج غذائية'],ph:'+96550000001',em:'ahmed@qawwatak.com'},
+{n:'خالد المطيري',sp:'خسارة وزن',c:'حولي',r:4.8,rv:94,p:12,tags:['حرق دهون','متابعة أسبوعية'],ph:'+96550000002',em:'khaled@qawwatak.com'},
+{n:'سلطان الرشيدي',sp:'لياقة عامة',c:'الفروانية',r:4.7,rv:81,p:10,tags:['مبتدئين','تمارين منزلية'],ph:'+96550000003',em:'sultan@qawwatak.com'},
+{n:'فهد العجمي',sp:'تأهيل إصابات',c:'مبارك الكبير',r:5.0,rv:63,p:20,tags:['علاج طبيعي','كبار السن'],ph:'+96550000004',em:'fahad@qawwatak.com'},
+{n:'عبدالله الظفيري',sp:'كروس فت',c:'الجهراء',r:4.6,rv:112,p:13,tags:['تحمّل','مجموعات'],ph:'+96550000005',em:'abdullah@qawwatak.com'},
+{n:'ناصر الكندري',sp:'تضخيم عضلي',c:'أونلاين',r:4.8,rv:205,p:8,tags:['متابعة أونلاين','برامج مخصصة'],ph:'+96550000006',em:'nasser@qawwatak.com'}];
+function renderTr(){const sp=$('#fSpec').value,ct=$('#fCity').value;
+const list=trainers.filter(t=>(!sp||t.sp===sp)&&(!ct||t.c===ct));
+$('#trGrid').innerHTML=list.length?list.map(t=>`<div class="tr-card"><div class="tr-head"><div class="avatar">${t.n[0]}</div><div><h4>${t.n}</h4><small>${t.sp} — ${t.c}</small><span class="rate">★ ${t.r} <span style="color:var(--text2);font-weight:400">(${t.rv} تقييم)</span></span></div></div><div class="tr-tags">${t.tags.map(g=>`<span>${g}</span>`).join('')}</div><div class="tr-price">${t.p} د.ك / جلسة</div><div class="tr-actions"><a href="https://wa.me/${t.ph.replace('+','')}" target="_blank" rel="noopener">واتساب</a><a href="tel:${t.ph}">اتصال</a><a href="mailto:${t.em}">إيميل</a></div></div>`).join(''):'<div class="empty">لا يوجد مدرب يطابق الفلتر — جرّب تغيير الاختيارات</div>'}
+$('#fSpec').onchange=renderTr;$('#fCity').onchange=renderTr;renderTr();
+
+function calcBMI(){const w=+$('#bmiW').value,h=+$('#bmiH').value/100;if(!w||!h)return;
+const b=(w/(h*h)).toFixed(1);let c='وزن طبيعي — استمر';
+if(b<18.5)c='نحافة — ركز على زيادة السعرات والعضل';else if(b>=25&&b<30)c='زيادة وزن — نظّم أكلك وزد الحركة';else if(b>=30)c='سمنة — ابدأ تدريجياً واستشر مختص';
+const r=$('#bmiRes');r.style.display='block';r.innerHTML=`<b>${b}</b><small>${c}</small>`}
+function calcCal(){const s=$('#calSex').value,a=+$('#calAge').value,w=+$('#calW').value,h=+$('#calH').value,act=+$('#calAct').value,g=+$('#calGoal').value;
+if(!a||!w||!h)return;
+const bmr=s==='m'?10*w+6.25*h-5*a+5:10*w+6.25*h-5*a-161;
+const total=Math.round(bmr*act+g);
+const pr=Math.round(w*1.8),fat=Math.round(total*0.25/9),carb=Math.round((total-pr*4-fat*9)/4);
+const r=$('#calRes');r.style.display='block';
+r.innerHTML=`<b>${total.toLocaleString('ar')} سعرة</b><small>بروتين ${pr} جم · كارب ${carb} جم · دهون ${fat} جم يومياً</small>`}
+
+function getLogs(){try{return JSON.parse(store.get('logs')||'[]')}catch(e){return[]}}
+function renderLogs(){const L=getLogs();
+$('#logList').innerHTML=L.length?L.map((x,i)=>`<div class="log"><b>${x.e}</b><span>${x.w} كجم × ${x.r}</span><small>${x.d}</small><button class="del" onclick="delLog(${i})">حذف</button></div>`).join(''):'<div class="empty">سجلك فاضي — أضف أول تمرين وابدأ رحلتك 💪</div>'}
+function addLog(){const e=$('#tEx').value.trim(),w=$('#tW').value,r=$('#tR').value;if(!e||!w||!r)return;
+const L=getLogs();L.unshift({e,w,r,d:new Date().toLocaleDateString('ar-KW')});store.set('logs',JSON.stringify(L.slice(0,50)));
+$('#tEx').value='';$('#tW').value='';$('#tR').value='';renderLogs()}
+function delLog(i){const L=getLogs();L.splice(i,1);store.set('logs',JSON.stringify(L));renderLogs()}
+renderLogs();
+</script>
+</body>
+</html>
